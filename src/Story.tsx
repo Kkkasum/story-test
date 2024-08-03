@@ -4,8 +4,16 @@ import { FC } from 'react'
 const Story: FC = () => {
 	const mediaUrl = 'https://lizartsworld.com/Lizarts/items/1.jpeg'
 
-	const onClick = () => {
+	const shareToStory = () => {
 		WebApp.shareToStory(mediaUrl)
+	}
+
+	const shareToStoryWithParams = () => {
+		const params = {
+			text: 'My LizArts Nft',
+		}
+
+		WebApp.shareToStory(mediaUrl, params)
 	}
 
 	return (
@@ -13,7 +21,14 @@ const Story: FC = () => {
 			<div>
 				<img src={mediaUrl} width={250} height={250} />
 			</div>
-			<button onClick={onClick}>Share to Story</button>
+			<div>
+				<button onClick={shareToStory}>Share to Story</button>
+			</div>
+			<div>
+				<button onClick={shareToStoryWithParams}>
+					Share To Story With Params
+				</button>
+			</div>
 		</div>
 	)
 }
